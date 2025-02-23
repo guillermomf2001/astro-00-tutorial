@@ -20,6 +20,14 @@ h1 {
   font-size: 2.5rem;
 }
 
+.btn {
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #4c1d95;
+  text-decoration: none;
+}
+
+
 /* estilos de la barra de navegación*/
 
 .hamburger {
