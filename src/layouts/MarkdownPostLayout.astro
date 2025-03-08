@@ -5,6 +5,10 @@ const { frontmatter } = Astro.props;
 <BaseLayout pageTitle={frontmatter.title}>
 	<a class="btn" href="/blog">Volver</a>
 	
+	<div class="tags">
+		{frontmatter.tags.map(tag => <a class="tag" href={`./tags/${tag}`}>{tag}</a>)}
+	</div>
+
 	<h1>{frontmatter.title}</h1>
 	<p>{frontmatter.pubDate.toString().slice(0,10)}</p>
 	<p><em>{frontmatter.description}</em></p>
@@ -12,4 +16,39 @@ const { frontmatter } = Astro.props;
 	<img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
 
 	<slot />
+
 </BaseLayout>
+
+
+
+<style>
+
+.btn {
+	display: block;
+	width: fit-content;
+	margin-top: 3rem;
+  padding: 0.5rem 2rem;
+  color: white;
+  background-color: #4c1d95;
+  text-decoration: none;
+}
+
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+		gap: 2rem;
+		margin: 5rem auto 2rem;
+  }
+
+  .tag {
+		display: block;
+		padding: .5em 1em;
+		border: dotted 1px #a1a1a1;
+		border-radius: .5em;
+		background-color: #F8FCFD;
+		color: #00539F;
+		font-size: 1.15em;
+		text-decoration: none;
+  }
+</style>
